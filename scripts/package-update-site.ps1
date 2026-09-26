@@ -4,7 +4,7 @@
 )
 $ErrorActionPreference = 'Stop'
 $projectRoot = Split-Path -Parent $PSScriptRoot
-$pluginJar = Join-Path $projectRoot 'dist/dev.coderecorder_0.2.5.jar'
+$pluginJar = Join-Path $projectRoot 'dist/dev.coderecorder_0.2.6.jar'
 if (!(Test-Path $pluginJar)) { throw 'Run scripts/build.ps1 first.' }
 $runRoot = Join-Path $projectRoot ('build/update-site-' + [guid]::NewGuid().ToString('N'))
 $source = Join-Path $runRoot 'source'
@@ -14,7 +14,7 @@ $simple = Join-Path $config 'org.eclipse.equinox.simpleconfigurator'
 New-Item -ItemType Directory -Force -Path $simple,$repository,(Join-Path $source 'plugins'),(Join-Path $source 'features') | Out-Null
 Copy-Item -LiteralPath $pluginJar -Destination (Join-Path $source 'plugins')
 Copy-Item -LiteralPath (Join-Path $projectRoot 'feature/site.xml') -Destination $source
-& (Join-Path $JdkHome 'bin/jar.exe') --create --file (Join-Path $source 'features/dev.coderecorder.feature_0.2.5.jar') -C (Join-Path $projectRoot 'feature') feature.xml
+& (Join-Path $JdkHome 'bin/jar.exe') --create --file (Join-Path $source 'features/dev.coderecorder.feature_0.2.6.jar') -C (Join-Path $projectRoot 'feature') feature.xml
 if ($LASTEXITCODE -ne 0) { throw 'Feature packaging failed' }
 function FileUri([string]$path) { return ([uri]$path).AbsoluteUri }
 $bundles = Get-Content (Join-Path $StsHome 'configuration/org.eclipse.equinox.simpleconfigurator/bundles.info') | ForEach-Object {
@@ -46,7 +46,7 @@ if (!(Test-Path (Join-Path $repository 'content.xml')) -or !(Test-Path (Join-Pat
 if (!($metadata.repository.units.unit | Where-Object id -eq 'dev.coderecorder.feature.feature.group')) { throw 'Installable feature not found' }
 if (!($metadata.repository.units.unit | Where-Object { $_.properties.property | Where-Object { $_.name -eq 'org.eclipse.equinox.p2.type.category' -and $_.value -eq 'true' } })) { throw 'Install category not found' }
 # The JDK archive tool produces portable ZIP entry paths for Eclipse's Archive installer.
-$archive = Join-Path $projectRoot 'dist/code-recorder-update-site-0.2.5.zip'
+$archive = Join-Path $projectRoot 'dist/code-recorder-update-site-0.2.6.zip'
 & (Join-Path $JdkHome 'bin/jar.exe') --create --file $archive --no-manifest -C $repository .
 if ($LASTEXITCODE -ne 0) { throw 'Update site archive failed' }
 Write-Output "Update site: $archive"

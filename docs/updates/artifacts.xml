@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='file:/C:/code/code-recorder/code-recorder-sts3/build/update-site-3d2df4a44c664315b311ffed0e0d9385/repository/ - artifacts' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='2'>
+    <property name='p2.timestamp' value='1790411333665'/>
+    <property name='p2.compressed' value='false'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='2'>
+    <artifact classifier='osgi.bundle' id='dev.coderecorder' version='0.2.6'>
+      <properties size='5'>
+        <property name='artifact.size' value='34847'/>
+        <property name='download.size' value='34847'/>
+        <property name='download.md5' value='c7532f12c1456c7d2b5a6d5697a3117e'/>
+        <property name='download.checksum.md5' value='c7532f12c1456c7d2b5a6d5697a3117e'/>
+        <property name='download.checksum.sha-256' value='c27657dff69935161abbd28d60fda54940b984651b080a19b6693afd4ad9f0b8'/>
+      </properties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='dev.coderecorder.feature' version='0.2.6'>
+      <properties size='6'>
+        <property name='artifact.size' value='1369'/>
+        <property name='download.size' value='1369'/>
+        <property name='download.md5' value='e06babd73cebc95c243f28b8b3f24fee'/>
+        <property name='download.checksum.md5' value='e06babd73cebc95c243f28b8b3f24fee'/>
+        <property name='download.checksum.sha-256' value='82b772404ab39ecb186e861e2dfa5f2965d2ccf1a88d46d481ff3ccef707f5f1'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+    </artifact>
+  </artifacts>
+</repository>

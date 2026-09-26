@@ -1,0 +1,10 @@
+build/
+dist/
+plugin/bin/
+*.coderec.json
+*.journal.jsonl
+*.partial
+player/
+개선안.md
+복원지점.md
+실행계획.md
